@@ -1,12 +1,19 @@
-import schema from "@/instant.schema";
-import { APP_ID } from "@/utils";
-import { init } from "@instantdb/react-native";
 import { Stack } from "expo-router";
+import { db } from "@/utils";
 
 
 export default function RootLayout() {
   
   return <Stack> 
-    <Stack.Screen name ="index" />
+    <db.SignedIn>
+    <Stack.Screen name ="index"   />
+    </db.SignedIn>
+
+    <db.SignedOut>
+     
+     <Stack.Screen name ="index"   />
+
+
+    </db.SignedOut>
   </Stack>;
 }
